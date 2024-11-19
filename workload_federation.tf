@@ -4,9 +4,21 @@ module "github_federation" {
   github_organization = "helmless"
 }
 
+locals {
+  repository_principals = { for repository in local.repositories : repository => "${module.github_federation.repository_principal_set_id_prefix}/${repository}" }
+}
+
 resource "google_project_iam_member" "project" {
-  for_each = toset(local.repositories)
+  for_each = local.repository_principals
   project  = data.google_project.project.project_id
   role     = "roles/run.admin"
-  member   = "${module.github_federation.repository_principal_set_id_prefix}/${each.value}"
+  member   = each.value
+}
+
+resource "google_service_account_iam_member" "cloud_run_v2" {
+  for_each = local.repository_principals
+
+  service_account_id = "projects/${data.google_project.project.project_id}/serviceAccounts/${data.google_project.project.number}-compute@developer.gserviceaccount.com"
+  role               = "roles/iam.serviceAccountUser"
+  member             = each.value
 }
