@@ -3,4 +3,10 @@ locals {
   repositories = [
     "google-cloudrun-chart"
   ]
+  service_apis = [
+    "iam.googleapis.com",
+    "run.googleapis.com"
+  ]
 }
+
+data "google_project" "project" {}

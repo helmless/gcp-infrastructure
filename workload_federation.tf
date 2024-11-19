@@ -4,8 +4,6 @@ module "github_federation" {
   github_organization = "helmless"
 }
 
-data "google_project" "project" {}
-
 resource "google_project_iam_member" "project" {
   for_each = toset(local.repositories)
   project  = data.google_project.project.project_id
