@@ -41,8 +41,8 @@ script "deploy" {
     commands = [
       [let.provisioner, "init"],
       [let.provisioner, "validate"],
-      ["tfsec", "."],
-      [let.provisioner, "apply", "-auto-approve"],
+      ["trivy", "config", "."],
+      [let.provisioner, "apply"],
     ]
   }
 }
