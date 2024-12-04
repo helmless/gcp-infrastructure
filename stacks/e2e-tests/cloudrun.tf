@@ -13,7 +13,7 @@ module "workload_identity" {
 }
 
 module "cloudrun_service_e2e_test" {
-  source                 = "github.com/helmless/google-cloudrun-service-terraform-module?ref=v0.1.0"
+  source                 = "github.com/helmless/google-cloudrun-service-terraform-module?ref=v0.1.1"
   name                   = "full-service"
   deployment_accounts    = local.deployment_accounts
   region                 = "europe-west1"
