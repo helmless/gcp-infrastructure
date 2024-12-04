@@ -1,0 +1,4 @@
+resource "google_storage_bucket" "state_bucket" {
+  name     = global.config.state_bucket.name
+  location = global.config.region
+}
