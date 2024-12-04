@@ -40,9 +40,15 @@ To plan changes for all stacks, run the following command:
 
 > **NOTE**  
 > You must commit all changes before running this command.  
-> The command will fail if there are uncommitted changes.
+> The command will fail if there are uncommitted changes.  
+> To work around this, you can set `export TM_DISABLE_SAFEGUARDS=git`
 
 ```bash
-terramate run init
-terramate run plan
+terramate script run plan
+```
+
+And to apply the changes, run the following command:
+
+```bash
+terramate script run deploy
 ```
