@@ -1,3 +1,12 @@
+locals {
+  service_apis = [
+    "iam.googleapis.com",
+    "run.googleapis.com"
+  ]
+}
+
+data "google_project" "project" {}
+
 resource "google_project_service" "project" {
   for_each = toset(local.service_apis)
   project  = data.google_project.project.project_id
