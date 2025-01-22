@@ -1,7 +1,10 @@
 locals {
   service_apis = [
     "iam.googleapis.com",
-    "run.googleapis.com"
+    "run.googleapis.com",
+    "cloudbuild.googleapis.com",
+    "clouddeploy.googleapis.com",
+    "storage.googleapis.com"
   ]
 }
 
