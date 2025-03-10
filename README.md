@@ -43,6 +43,14 @@ To plan changes for all stacks, run the following command:
 > The command will fail if there are uncommitted changes.  
 > To work around this, you can set `export TM_DISABLE_SAFEGUARDS=git`
 
+Authenticate with GCP:
+
+```bash
+gcloud auth application-default login
+```
+
+Plan the changes:
+
 ```bash
 terramate script run plan
 ```
@@ -50,5 +58,5 @@ terramate script run plan
 And to apply the changes, run the following command:
 
 ```bash
-terramate script run deploy
+terramate script run apply
 ```

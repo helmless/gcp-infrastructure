@@ -30,13 +30,13 @@ script "plan" {
   }
 }
 
-script "deploy" {
+script "apply" {
   description = "Run a Terraform deployment"
   lets {
     provisioner = "terraform" # another option: "tofu"
   }
   job {
-    name        = "deploy"
+    name        = "apply"
     description = "Initialize, validate and deploy Terraform stacks"
     commands = [
       [let.provisioner, "init"],

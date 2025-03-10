@@ -1,6 +1,7 @@
 locals {
   repositories = [
-      "helmless"
+      "helmless",
+      "google-cloudrun-deploy-action"
   ]
   deployment_accounts = [for repository in local.repositories : module.workload_identity[repository].principal_set]
 }
