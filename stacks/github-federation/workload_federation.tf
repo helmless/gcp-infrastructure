@@ -3,7 +3,8 @@ locals {
   github_organization = "helmless"
   repositories = [
     "helmless",
-    "google-cloudrun-action"
+    "google-cloudrun-action",
+    "google-cloudrun-charts"
   ]
 }
 
