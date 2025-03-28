@@ -2,7 +2,8 @@ locals {
   repositories = [
     "helmless",
     "google-cloudrun-action",
-    "google-cloudrun-charts"
+    "google-cloudrun-charts",
+    "google-cloudrun-example"
   ]
 }
 
